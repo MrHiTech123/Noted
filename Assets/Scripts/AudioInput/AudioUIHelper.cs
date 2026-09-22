@@ -49,6 +49,8 @@ public class AudioUIHelper : MonoBehaviour
 			
 			sampleRates.Add(minFrequency);
 			
+			
+			
 		}
 		
 		
@@ -61,7 +63,15 @@ public class AudioUIHelper : MonoBehaviour
 		foreach (string device in Microphone.devices)
 		{
 			Debug.Log(device);
+			
+			int minFrequency, maxFrequency;
+			Microphone.GetDeviceCaps(device, out minFrequency, out maxFrequency);
+			
+			Debug.Log(minFrequency);
+			Debug.Log(maxFrequency);
+			
 		}
+		
 		
 	}
 

@@ -88,14 +88,19 @@ public class AudioUIHelper : MonoBehaviour
 		
 	}
 	
+	bool jumpKeyDown;
 	
 	void Update()
 	{
-		Debug.Log(GameInput.Instance);
-		if (GameInput.Instance.JumpKeyDown() != 0)
+		if (GameInput.Instance.JumpKeyDown() != 0 && !jumpKeyDown)
 		{
 			OnStartStopButtonPressed();
+			jumpKeyDown = true;
 			Debug.Log("Pressed");
+		}
+		else if (jumpKeyDown && GameInput.Instance.JumpKeyDown() == 0)
+		{
+			jumpKeyDown = false;
 		}
 	}
 	
@@ -114,10 +119,12 @@ public class AudioUIHelper : MonoBehaviour
 	{
 		if (LinkedRecorder.recording)
 		{
+			Debug.Log("Stopping Recording");
 			StopRecording();
 		}
 		else
 		{
+			Debug.Log("Starting recording");
 			StartRecording();
 		}
 	}

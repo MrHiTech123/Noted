@@ -19,6 +19,7 @@ public class AudioClipDisplay : MonoBehaviour
 	public static void OnSetNewAudioClip(AudioClip clip)
 	{
 		Debug.Log(clip.frequency);
+		
 	}
 	
 }

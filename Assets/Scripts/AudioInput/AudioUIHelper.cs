@@ -16,7 +16,9 @@ public class AudioUIHelper : MonoBehaviour
 	[SerializeField] TMP_Dropdown SourcePicker;
 	[SerializeField] TMP_Dropdown SampleRate;
 	
-	static readonly int SAMPLE_RATE = 44100;
+	static int SAMPLE_RATE = 48000;
+	
+	public string selectedRecorder;
 	HashSet<String> knownDevices;
 	
 	
@@ -60,6 +62,15 @@ public class AudioUIHelper : MonoBehaviour
 	{
 		Debug.Log(Microphone.devices.Length);
 		
+		if (Microphone.devices.Length < 1)
+		{
+			return;
+		}
+		
+		selectedRecorder = Microphone.devices[0];
+		Microphone.GetDeviceCaps(selectedRecorder, out _, out SAMPLE_RATE);
+		
+		
 		foreach (string device in Microphone.devices)
 		{
 			Debug.Log(device);
@@ -73,7 +84,31 @@ public class AudioUIHelper : MonoBehaviour
 		}
 		
 		
+		
+		
+	}
+	
+	void StopRecording()
+	{
+		LinkedRecorder.StopRecording();
+	}
+	
+	void StartRecording()
+	{
+		LinkedRecorder.StartRecording(selectedRecorder, SAMPLE_RATE);
 	}
 
+
+	public void OnStartStopButtonPressed()
+	{
+		if (LinkedRecorder.recording)
+		{
+			StopRecording();
+		}
+		else
+		{
+			StartRecording();
+		}
+	}
 
 }

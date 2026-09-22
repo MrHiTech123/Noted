@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 1807794207}
   - component: {fileID: 1807794206}
   - component: {fileID: 1807794205}
+  - component: {fileID: 1807794208}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -394,6 +395,7 @@ MonoBehaviour:
   StartStopText: {fileID: 0}
   SourcePicker: {fileID: 0}
   SampleRate: {fileID: 0}
+  selectedRecorder: 
   LinkedRecorder: {fileID: 0}
 --- !u!212 &1807794206
 SpriteRenderer:
@@ -470,6 +472,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1807794208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807794204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c813d829be7a6e49ab4a39f642aa4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioRecorder
+  onRecordingReady:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 3c10d9bf8734d8548baeea5889a4b290, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

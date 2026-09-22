@@ -88,6 +88,17 @@ public class AudioUIHelper : MonoBehaviour
 		
 	}
 	
+	
+	void Update()
+	{
+		Debug.Log(GameInput.Instance);
+		if (GameInput.Instance.JumpKeyDown() != 0)
+		{
+			OnStartStopButtonPressed();
+			Debug.Log("Pressed");
+		}
+	}
+	
 	void StopRecording()
 	{
 		LinkedRecorder.StopRecording();

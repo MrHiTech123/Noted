@@ -11,7 +11,9 @@ public class AudioRecorder : MonoBehaviour
 	
 	AudioClip currentRecording;
 	string currentDevice;
+
 	
+
 	public bool StartRecording(string inDevice, int inSampleRate)
 	{
 		if (recording)
@@ -41,10 +43,14 @@ public class AudioRecorder : MonoBehaviour
 		
 		Microphone.End(currentDevice);
 		
+		
+		
+		// onRecordingReady.Invoke(currentRecording);
+		
+		AudioClipDisplay.OnSetNewAudioClip(currentRecording);
+		
 		currentRecording = null;
 		recording = false;
-		
-		onRecordingReady.Invoke(currentRecording);
 		
 		return true;
 		

@@ -111,7 +111,7 @@ public class AudioUIHelper : MonoBehaviour
 	
 	void StartRecording()
 	{
-		LinkedRecorder.StartRecording(selectedRecorder, SAMPLE_RATE);
+		LinkedRecorder.StartRecording();
 	}
 
 

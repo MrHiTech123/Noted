@@ -32,7 +32,7 @@ public class AudioRecorder : MonoBehaviour
 		SampleRate = getSampleRate(InDevice);
 	}
 
-	public readonly static double RECORDING_SAMPLE_TIME = 1;
+	public readonly static double RECORDING_SAMPLE_TIME = 0.25;
 	public bool StartRecording()
 	{
 		if (recording)

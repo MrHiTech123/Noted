@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Vars")]
     [SerializeField] float playerVelocity = 7;
 
+    [SerializeField] float scrollTimerMax = 1.5f;
+    [SerializeField] float playerForce = 750;
+    
+    float scrollTimer = 1.5f;
+
     void Awake()
     {
         if (Instance == null) {
@@ -35,14 +40,20 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRB.linearVelocityX = playerVelocity;
         }
-
-        if(GameInput.Instance.GetScrollDir() > 0)
-        {
-            playerRB.AddForceY(100);
-        }
-        else if(GameInput.Instance.GetScrollDir() < 0)
-        {
-            playerRB.AddForceY(-100);
+        scrollTimer += Time.deltaTime;
+        if(scrollTimer >= scrollTimerMax){
+            if(GameInput.Instance.GetScrollDir() > 0)
+            {
+                playerRB.linearVelocityY = 0;
+                playerRB.AddForceY(playerForce);
+                scrollTimer = 0;
+            }
+            else if(GameInput.Instance.GetScrollDir() < 0)
+            {
+                playerRB.linearVelocityY = 0;
+                playerRB.AddForceY(-playerForce/2);
+                scrollTimer = 0;
+            }
         }
     }
 

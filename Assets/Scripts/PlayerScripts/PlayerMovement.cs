@@ -44,11 +44,13 @@ public class PlayerMovement : MonoBehaviour
         if(scrollTimer >= scrollTimerMax){
             if(GameInput.Instance.GetScrollDir() > 0)
             {
+                playerRB.linearVelocityY = 0;
                 playerRB.AddForceY(playerForce);
                 scrollTimer = 0;
             }
             else if(GameInput.Instance.GetScrollDir() < 0)
             {
+                playerRB.linearVelocityY = 0;
                 playerRB.AddForceY(-playerForce/2);
                 scrollTimer = 0;
             }

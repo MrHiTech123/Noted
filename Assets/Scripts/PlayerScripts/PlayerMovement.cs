@@ -3,13 +3,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance {get; private set;}
+
     [Header("StuffToGrab")]
     [SerializeField] Rigidbody2D playerRB;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Vars")]
+    [SerializeField] float playerVelocity = 7;
+
+    void Awake()
     {
-        
+        if (Instance == null) {
+            Instance = this;
+        }
+        else {
+            Destroy(this);
+        }
     }
 
     // Update is called once per frame
@@ -20,7 +29,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovment()
     {
-        Debug.Log(GameInput.Instance.GetScrollDir());
+        if(playerRB.linearVelocityX != playerVelocity)
+        {
+            playerRB.linearVelocityX = playerVelocity;
+        }
+
         if(GameInput.Instance.GetScrollDir() > 0)
         {
             playerRB.AddForceY(100);
@@ -29,5 +42,10 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRB.AddForceY(-100);
         }
+    }
+
+    public Vector2 GetVelocity()
+    {
+        return playerRB.linearVelocity;
     }
 }

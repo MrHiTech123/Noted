@@ -236,8 +236,9 @@ public class AudioRecorder : MonoBehaviour
 		
 		float waveLengthInSamples = AverageWaveLengthInSamples(data);
 		float waveLengthInSeconds = waveLengthInSamples / SampleRate;
+		float frequency = 1 / waveLengthInSeconds;
 		
-		
+		Debug.Log("Wavelength: " + waveLengthInSamples + " = " + waveLengthInSeconds + "/sec = " + frequency + "Hz");
 		
 		// AudioSource source;
 		

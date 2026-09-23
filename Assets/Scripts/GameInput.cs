@@ -26,6 +26,11 @@ public class GameInput : MonoBehaviour
     {
         return inputActions.Player.Scroll.ReadValue<Vector2>().y;
     }
+	
+	public float JumpKeyDown()
+	{
+		return inputActions.Player.Jump.ReadValue<float>();
+	}
 
 
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -29,6 +30,35 @@ public class AudioClipDisplay : MonoBehaviour
 		
 		return toReturn;
 	}
+	
+	public static string stringifyArrOfFloats(float[] floats)
+	{
+		string toReturn = "";
+		for (int i = 0; i < 200; ++i)
+		{
+			float f = floats[i];
+			Debug.Log(f);
+			toReturn += f;
+			toReturn += ",";
+		}
+		return toReturn;
+	}
+	
+	public static float Max(float[] data)
+	{
+		
+		
+		float toReturn = 0;
+		foreach (float item in data)
+		{
+			if (item > toReturn)
+			{
+				toReturn = item;
+			}
+		}
+		
+		return toReturn;
+	}
 	public static void OnSetNewAudioClip(AudioClip clip)
 	{
 		Debug.Log("Frequency: " + clip.frequency);
@@ -38,7 +68,9 @@ public class AudioClipDisplay : MonoBehaviour
 		
 		clip.GetData(data, 0);
 		
-		Debug.Log("First: " + data[0] + " average: " + average(data));
+		Debug.Log("First: " + data[0] + " max: " + Max(data));
+		Debug.Log(stringifyArrOfFloats(data));
+		// AudioSource source;
 		
 		
 	}

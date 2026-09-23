@@ -440,7 +440,7 @@ MonoBehaviour:
   SourcePicker: {fileID: 0}
   SampleRate: {fileID: 0}
   selectedRecorder: 
-  LinkedRecorder: {fileID: 0}
+  LinkedRecorder: {fileID: 1807794208}
 --- !u!212 &1807794206
 SpriteRenderer:
   serializedVersion: 3

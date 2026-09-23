@@ -34,8 +34,10 @@ public class AudioClipDisplay : MonoBehaviour
 	public static string stringifyArrOfFloats(float[] floats)
 	{
 		string toReturn = "";
-		foreach (float f in floats)
+		for (int i = 0; i < 200; ++i)
 		{
+			float f = floats[i];
+			Debug.Log(f);
 			toReturn += f;
 			toReturn += ",";
 		}
@@ -44,6 +46,8 @@ public class AudioClipDisplay : MonoBehaviour
 	
 	public static float Max(float[] data)
 	{
+		
+		
 		float toReturn = 0;
 		foreach (float item in data)
 		{
@@ -65,7 +69,9 @@ public class AudioClipDisplay : MonoBehaviour
 		clip.GetData(data, 0);
 		
 		Debug.Log("First: " + data[0] + " max: " + Max(data));
-		// Debug.Log(stringifyArrOfFloats(data));
+		Debug.Log(stringifyArrOfFloats(data));
+		// AudioSource source;
+		
 		
 	}
 	

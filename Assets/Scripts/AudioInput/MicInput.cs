@@ -23,7 +23,10 @@ public class MicInput : MonoBehaviour {
   
     //mic initialization
     void InitMic(){
-        if(_device == null) _device = Microphone.devices[0];
+        // if(_device == null) _device = Microphone.devices[0];
+		_device = "Headset (GROOVZ)";
+		Debug.Log("Hi " + Microphone.devices[0]);
+		Debug.Log("Hi " + _device);
         _clipRecord = Microphone.Start(_device, true, 999, 44100);
 		peaks = new List<DateTime>();
     }
@@ -62,9 +65,14 @@ public class MicInput : MonoBehaviour {
 	void TrackCurrentFrequencyState(float loudness)
 	{
 		Debug.Log("Tracking " + loudness);
-		while (peaks.Count > 0 && peaks.First().Subtract(DateTime.Now) > TimeSpan.FromSeconds(1))
+		try {
+		Debug.Log(peaks.First().Subtract(DateTime.Now));
+		}
+		catch {}
+		while (peaks.Count > 0 && DateTime.Now.Subtract(peaks.First()) > TimeSpan.FromSeconds(1))
 		{
-			peaks.RemoveAt(0);
+			peaks.Remove(peaks.First());
+			Debug.Log("Removing");
 		}
 		switch (currentWaveState)
 		{

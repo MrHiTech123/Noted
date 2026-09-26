@@ -1,21 +1,41 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class MicInput : MonoBehaviour {
   
     public static float MicLoudness;
 	
+	public static readonly float RECORDING_LENGTH = 0.2f;
 	public static float MicFrequency
 	{
 		get
 		{
+			// if (peaks.Count() <= 1)
+			// {
+			// 	return -1;
+			// }
+			
+			// TimeSpan timeOfMeasurement = peaks.Last().Subtract(peaks.First());
+			
+			
+			
+			// Debug.Log(peaks.Count() + " / " + timeOfMeasurement.TotalSeconds);
+			
+			// if (timeOfMeasurement.TotalSeconds == 0)
+			// {
+			// 	return -1;
+			// }
+			
+			// return peaks.Count() / (float)timeOfMeasurement.TotalSeconds;
+			
 			return peaks.Count();
 		}
 	}
 	private WaveState currentWaveState;
-	private static readonly float PEAK_THRESHOLD = 0.001f;
+	private static readonly float PEAK_THRESHOLD = 0.0001f;
 	
 	private static List<DateTime> peaks = new List<DateTime>();
 	
@@ -69,7 +89,7 @@ public class MicInput : MonoBehaviour {
 		Debug.Log(peaks.First().Subtract(DateTime.Now));
 		}
 		catch {}
-		while (peaks.Count > 0 && DateTime.Now.Subtract(peaks.First()) > TimeSpan.FromSeconds(1))
+		while (peaks.Count > 0 && DateTime.Now.Subtract(peaks.First()) > TimeSpan.FromSeconds(RECORDING_LENGTH))
 		{
 			peaks.Remove(peaks.First());
 			Debug.Log("Removing");

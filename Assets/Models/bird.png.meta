@@ -132,12 +132,12 @@ TextureImporter:
       name: bird_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 383
-        width: 71
-        height: 40
+        x: 0
+        y: 256
+        width: 512
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -154,12 +154,12 @@ TextureImporter:
       name: bird_1
       rect:
         serializedVersion: 2
-        x: 53
-        y: 322
-        width: 410
-        height: 106
+        x: 0
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -172,187 +172,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: bird_2
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 352
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c08d7d3adbee3a4a0800000000000000
-      internalID: -6583155732020471796
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_3
-      rect:
-        serializedVersion: 2
-        x: 439
-        y: 341
-        width: 15
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14a8618cc4829a010800000000000000
-      internalID: 1200535085910493761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_4
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 363
-        width: 19
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03bb441be3097f840800000000000000
-      internalID: 5257829688914787120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_5
-      rect:
-        serializedVersion: 2
-        x: 471
-        y: 344
-        width: 27
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7077bd35e8cc7aa90800000000000000
-      internalID: -7302643359093655801
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_6
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 122
-        width: 39
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 189ce42413b8bda20800000000000000
-      internalID: 3088215013174724993
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_7
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 67
-        width: 392
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7afd275ea33eff6b0800000000000000
-      internalID: -5260235997648330841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_8
-      rect:
-        serializedVersion: 2
-        x: 421
-        y: 118
-        width: 52
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0598fc444719e3540800000000000000
-      internalID: 4989585365729773904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_9
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 91
-        width: 33
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d6eed6801c434ae50800000000000000
-      internalID: 6819633739420528237
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e952b3c18eab2144492be1d8e3755ed7
     internalID: 0
     vertices: []
     indices: 
@@ -360,18 +184,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":2.0},"gridSpriteSize":{"x":512.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       bird_0: -5064401156898091283
       bird_1: -7518524041257459519
-      bird_2: -6583155732020471796
-      bird_3: 1200535085910493761
-      bird_4: 5257829688914787120
-      bird_5: -7302643359093655801
-      bird_6: 3088215013174724993
-      bird_7: -5260235997648330841
-      bird_8: 4989585365729773904
-      bird_9: 6819633739420528237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

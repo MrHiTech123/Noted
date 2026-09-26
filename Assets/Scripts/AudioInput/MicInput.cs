@@ -3,6 +3,7 @@ using UnityEngine;
 public class MicInput : MonoBehaviour {
   
     public static float MicLoudness;
+	public static float MicFrequency;
 
     private string _device;
   
@@ -89,4 +90,12 @@ public class MicInput : MonoBehaviour {
           
         }
     }
+}
+
+enum StepOfWave
+{
+	AT_POSITIVE_PEAK,
+	BELOW_ZERO,
+	AT_NEGATIVE_PEAK,
+	ABOVE_ZERO
 }

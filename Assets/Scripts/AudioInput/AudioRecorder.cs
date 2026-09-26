@@ -28,7 +28,7 @@ public class AudioRecorder : MonoBehaviour
 	}
 	private int SampleRate;
 	
-	public readonly static double RECORDING_SAMPLE_TIME = 0.25;
+	public readonly static double RECORDING_SAMPLE_TIME = 0.1;
 	
 	float[] data;
 

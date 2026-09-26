@@ -27,14 +27,18 @@ public class AudioRecorder : MonoBehaviour
 		return minFrequency;
 	}
 	private int SampleRate;
+	
+	public readonly static double RECORDING_SAMPLE_TIME = 0.25;
+	
+	float[] data;
 
 	void Awake()
 	{
 		InDevice = Microphone.devices[0];
 		SampleRate = getSampleRate(InDevice);
+		data = new float[(int)(SampleRate * AudioRecorder.RECORDING_SAMPLE_TIME)];
 	}
 
-	public readonly static double RECORDING_SAMPLE_TIME = 1;
 	public bool StartRecording()
 	{
 		if (recording)
@@ -114,13 +118,13 @@ public class AudioRecorder : MonoBehaviour
 	public static string stringifyArrOfFloats(float[] floats)
 	{
 		string toReturn = "";
-		for (int i = 40000; i < 43000; ++i)
-		{
-			float f = floats[i];
-			// Debug.Log(f);
-			toReturn += f;
-			toReturn += ",";
-		}
+		// for (int i = 40000; i < 43000; ++i)
+		// {
+		// 	float f = floats[i];
+		// 	// Debug.Log(f);
+		// 	toReturn += f;
+		// 	toReturn += ",";
+		// }
 		return toReturn;
 	}
 	
@@ -225,7 +229,6 @@ public class AudioRecorder : MonoBehaviour
 		Debug.Log("Frequency: " + clip.frequency);
 		Debug.Log("Channels: " + clip.channels);
 		
-		float[] data = new float[clip.samples * clip.channels];
 		
 		clip.GetData(data, 0);
 		

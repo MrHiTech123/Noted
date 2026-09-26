@@ -9,7 +9,7 @@ class MoveWithMicLoudness : MonoBehaviour
 
 	void Update()
 	{
-		float frequencyYCoordinate = MicInput.MicFrequency * 0.01f;
+		float frequencyYCoordinate = MicInput.MicFrequency * 0.03f;
 		
 		Debug.Log(MicInput.MicLoudness + " -> ");
 		Debug.Log(MicInput.MicFrequency + " -> " + frequencyYCoordinate);

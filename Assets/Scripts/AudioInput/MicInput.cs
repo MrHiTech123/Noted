@@ -1,16 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MicInput : MonoBehaviour {
   
     public static float MicLoudness;
-	public static float MicFrequency;
-
+	
+	public static float MicFrequency
+	{
+		get
+		{
+			return peaks.Count();
+		}
+	}
+	private WaveState currentWaveState;
+	private static readonly float PEAK_THRESHOLD = 0.001f;
+	
+	private static List<DateTime> peaks = new List<DateTime>();
+	
     private string _device;
   
     //mic initialization
     void InitMic(){
         if(_device == null) _device = Microphone.devices[0];
         _clipRecord = Microphone.Start(_device, true, 999, 44100);
+		peaks = new List<DateTime>();
     }
   
     void StopMicrophone()
@@ -33,6 +48,9 @@ public class MicInput : MonoBehaviour {
         // Getting a peak on the last 128 samples
         for (int i = 0; i < _sampleWindow; i++) {
             float wavePeak = waveData[i] * waveData[i];
+			
+			TrackCurrentFrequencyState(wavePeak);
+			
             if (levelMax < wavePeak) {
                 levelMax = wavePeak;
             }
@@ -41,7 +59,43 @@ public class MicInput : MonoBehaviour {
     }
   
   
-  
+	void TrackCurrentFrequencyState(float loudness)
+	{
+		Debug.Log("Tracking " + loudness);
+		while (peaks.Count > 0 && peaks.First().Subtract(DateTime.Now) > TimeSpan.FromSeconds(1))
+		{
+			peaks.RemoveAt(0);
+		}
+		switch (currentWaveState)
+		{
+			case WaveState.AT_POSITIVE_PEAK:
+				if (loudness < PEAK_THRESHOLD / 2)
+				{
+					currentWaveState = WaveState.BELOW_ZERO;
+				}
+				break;
+			case WaveState.BELOW_ZERO:
+				if (loudness <= 1e-5)
+				{
+					currentWaveState = WaveState.AT_NEGATIVE_PEAK;
+				}
+				break;
+			case WaveState.AT_NEGATIVE_PEAK:
+				if (loudness > PEAK_THRESHOLD / 2)
+				{
+					currentWaveState = WaveState.ABOVE_ZERO;
+				}
+				break;
+			case WaveState.ABOVE_ZERO:
+				if (loudness > PEAK_THRESHOLD)
+				{
+					currentWaveState = WaveState.AT_POSITIVE_PEAK;
+					peaks.Add(DateTime.Now);
+				}
+				break;
+		}
+		
+	}
     void Update()
     {
         // levelMax equals to the highest normalized value power 2, a small number because < 1
@@ -92,7 +146,7 @@ public class MicInput : MonoBehaviour {
     }
 }
 
-enum StepOfWave
+enum WaveState
 {
 	AT_POSITIVE_PEAK,
 	BELOW_ZERO,

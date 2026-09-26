@@ -9,12 +9,12 @@ class MoveWithMicLoudness : MonoBehaviour
 
 	void Update()
 	{
-		float volumeYCoordinate = MicInput.MicLoudness * 5.0f;
+		float frequencyYCoordinate = MicInput.MicFrequency * 0.01f;
 		
-		Debug.Log(MicInput.MicLoudness + " -> " + volumeYCoordinate);
-		Debug.Log(MicInput.MicFrequency + " -> ");
+		Debug.Log(MicInput.MicLoudness + " -> ");
+		Debug.Log(MicInput.MicFrequency + " -> " + frequencyYCoordinate);
 		
-		transform.SetPositionAndRotation(new Vector3(transform.position.x, volumeYCoordinate, transform.position.z), transform.rotation);
+		transform.SetPositionAndRotation(new Vector3(transform.position.x, frequencyYCoordinate, transform.position.z), transform.rotation);
 		
 	}
 }

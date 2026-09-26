@@ -1,10 +1,11 @@
 
 
 using UnityEngine;
+using UnityEngine.InputSystem.Composites;
 
 public class BirdAI : MonoBehaviour, IAI
 {
-    Vector3[] bezPoints = new Vector3[4];
+    Vector3[] bezPoints = new Vector3[7];
     float bezTimer = 0.0f;
 
     // Vector3 attackTarget;
@@ -14,29 +15,61 @@ public class BirdAI : MonoBehaviour, IAI
     [Header("Settings")]
     [SerializeField] float turnSpeed = 5f;
     [SerializeField] float attackSpeed = 8f;
+    [SerializeField] float bouceForce = 300f;
+
 
     private bool attackOver = false;
     private Vector2 direction;
+    Vector2 control;
+    bool loop = false;
+    private Rigidbody2D birdRB;
+    int playerLayer = 6;
+    bool hitPlayer = false;
+    Vector2 contactNormal;
+    private Bezier bezier = new Bezier();
     void Start()
     {
-        bezPoints[0] = transform.position;
-        bezPoints[1] = new Vector3(RandPoint(bezPoints[0].x),RandPoint(bezPoints[0].y),0);
-        bezPoints[2] = new Vector3(RandPoint(bezPoints[1].x),RandPoint(bezPoints[1].y),0);
-        bezPoints[3] = new Vector3(RandPoint(bezPoints[2].x),RandPoint(bezPoints[2].y),0);
+        control = transform.position;
+        birdRB = GetComponent<Rigidbody2D>();
+        bezier.GenerateBezierLoop(control, bezPoints);
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == playerLayer)
+        {
+            attackOver = true;
+            hitPlayer = true;
+            contactNormal = collision.contacts[0].normal;
+            birdRB.AddForce(contactNormal*bouceForce);
+
+        }
     }
     public void Patrol()
     {
+        if(attackOver && hitPlayer)
+        {
+            birdRB.gravityScale = 1;
+            return;
+        }
+        else if(attackOver && !hitPlayer)
+        {
+            Vector2 dir = new Vector2(-1,0);
+            transform.rotation = bezier.Rotate(dir,transform);
+            transform.position = Vector2.MoveTowards(transform.position, transform.position + (Vector3) dir, .2f);
+            return;
+        }
         if(bezTimer < 1.0f)
         {
-            bezTimer += Time.deltaTime/1.4f;
-            transform.position = CalculateBezierPoint(bezTimer,bezPoints[0],bezPoints[1],bezPoints[2],bezPoints[3]);
+            bezTimer += Time.deltaTime/1.5f;
+            transform.position = bezier.CalculateLoopPoint(bezTimer, loop, bezPoints);
+
+            Vector2 dir = bezier.CalculateLoopDirection(bezTimer, loop, bezPoints);
+            transform.rotation = bezier.Rotate(dir,transform);
         }
         else
         {
-            bezPoints[3] = bezPoints[0];
-            bezPoints[0] = transform.position;
-            bezPoints[1] = new Vector3(RandPoint(bezPoints[0].x),RandPoint(bezPoints[0].y),0);
-            bezPoints[2] = new Vector3(RandPoint(bezPoints[1].x),RandPoint(bezPoints[1].y),0);
+            loop = !loop;
+            bezier.GenerateBezierLoop(control, bezPoints);
             bezTimer = 0;
         }
     }
@@ -63,13 +96,12 @@ public class BirdAI : MonoBehaviour, IAI
             Vector2 targetDirection = (playerPos - pos).normalized;
             direction = Vector2.Lerp(direction, targetDirection, turnSpeed * Time.deltaTime).normalized;
             transform.position += (Vector3)(direction * attackSpeed * Time.deltaTime);
+            transform.rotation = bezier.Rotate(direction,transform);
             if (Mathf.Abs(pos.x) + .7f < Mathf.Abs(playerPos.x))
             {
                 attackOver = true;
-                bezPoints[0] = transform.position;
-                bezPoints[1] = new Vector3(RandPoint(bezPoints[0].x),RandPoint(bezPoints[0].y),0);
-                bezPoints[2] = new Vector3(RandPoint(bezPoints[1].x),RandPoint(bezPoints[1].y),0);
-                bezPoints[3] = new Vector3(RandPoint(bezPoints[2].x),RandPoint(bezPoints[2].y),0);
+                control = transform.position;
+                // GenerateBezierLoop();
                 bezTimer = 0;
             }
         }
@@ -85,8 +117,7 @@ public class BirdAI : MonoBehaviour, IAI
     public void Chase()
     {
         Vector2 direction = PlayerMovement.Instance.transform.position - transform.position;
-        float angle = Mathf.Atan2(direction.x,direction.y) * Mathf.Rad2Deg;
-        transform.eulerAngles = new Vector3(0,0,angle);
+        transform.rotation = bezier.Rotate(direction,transform);
     }
 
     public bool IsInAttackArea()
@@ -103,22 +134,6 @@ public class BirdAI : MonoBehaviour, IAI
         return distance <= 15;
     }
 
-    Vector3 CalculateBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
-    {
-        float u = 1 - t;
-        float tt = t * t;
-        float uu = u * u;
-        float uuu = uu * u;
-        float ttt = tt * t;
     
-        return (uuu * p0) + (3 * uu * t * p1) + (3 * u * tt * p2) + (ttt * p3);
-    }   
-
-    float RandPoint(float x)
-    {
-        float y = (Random.value > .5) ? Random.Range(-2.0f,-1.0f) : Random.Range(1.0f,2.0f);
-        return x + y;
-    }
-
     
 }

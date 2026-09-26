@@ -10,6 +10,7 @@ public class BugAI : MonoBehaviour, IAI
     Vector2 startPos;
     Vector2 currPos;
     float distanceFromStart = 0;
+    Bezier bezier = new Bezier();
     void Start()
     {
         startPos = transform.position;
@@ -18,12 +19,14 @@ public class BugAI : MonoBehaviour, IAI
     {
         if(!locked){
             Vector2 offset = new Vector2(2,0);
+            Quaternion rotation = transform.rotation;
             transform.RotateAround(startPos - offset, new Vector3(0,0,1) ,1f);
+            transform.rotation = rotation;
         }
         else
         {
             returnTimer += Time.deltaTime/distanceFromStart;
-            transform.position = Vector2.Lerp(transform.position, startPos, 4f * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, startPos, 4f * Time.deltaTime);
             if(returnTimer >= 1)
             {
                 locked = false;

@@ -240,6 +240,10 @@ public class AudioRecorder : MonoBehaviour
 		
 		Debug.Log("Wavelength: " + waveLengthInSamples + " = " + waveLengthInSeconds + "/sec = " + frequency + "Hz");
 		
+		float frequencyYCoordinate = frequency / 10000.0f * 5.0f;
+		
+		transform.SetPositionAndRotation(new Vector3(transform.position.x, frequencyYCoordinate, transform.position.z), transform.rotation);
+		
 		// AudioSource source;
 		
 		

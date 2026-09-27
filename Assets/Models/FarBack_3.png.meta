@@ -1,22 +1,13 @@
 fileFormatVersion: 2
-guid: 97860206a1d37f44cb06a195388ae587
+guid: b71050a6243559c4e89fcdc812cfb849
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4656658513182322354
-    second: bee_0
+      213: 1891646813912257528
+    second: FarBack_3_0
   - first:
-      213: 8806478641461110654
-    second: bee_1
-  - first:
-      213: 2575153785110993952
-    second: bee_2
-  - first:
-      213: 7329798439485887900
-    second: bee_3
-  - first:
-      213: -996179858421597942
-    second: bee_4
+      213: 4051700529300846558
+    second: FarBack_3_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -114,45 +105,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bee_0
+      name: FarBack_3_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 128
-        height: 128
+        y: 832
+        width: 2048
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e41187911c9306fb0800000000000000
-      internalID: -4656658513182322354
+      spriteID: 8f35dbf31ca704a10800000000000000
+      internalID: 1891646813912257528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bee_1
+      name: FarBack_3_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 2048
+        height: 410
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e77aa5a6aa5e63a70800000000000000
-      internalID: 8806478641461110654
+      spriteID: ed73d312a288a3830800000000000000
+      internalID: 4051700529300846558
       vertices: []
       indices: 
       edges: []
@@ -161,7 +152,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9281bf346d56eca48834c56260adeb9a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -169,12 +160,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      bee_0: -4656658513182322354
-      bee_1: 8806478641461110654
+      FarBack_3_0: 1891646813912257528
+      FarBack_3_1: 4051700529300846558
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

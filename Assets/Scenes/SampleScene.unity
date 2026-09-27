@@ -370,6 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1031402452}
   - component: {fileID: 1031402451}
+  - component: {fileID: 1031402453}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -404,6 +405,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1031402453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031402450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb224be22fa640942982efb42eb4c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MicInput
 --- !u!1 &1807794204
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +427,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1807794207}
   - component: {fileID: 1807794206}
-  - component: {fileID: 1807794205}
   - component: {fileID: 1807794208}
   m_Layer: 0
   m_Name: Triangle
@@ -423,24 +435,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1807794205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807794204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f86f2e1f53233459d933fc726a232d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioUIHelper
-  StartStopButton: {fileID: 0}
-  StartStopText: {fileID: 0}
-  SourcePicker: {fileID: 0}
-  SampleRate: {fileID: 0}
-  selectedRecorder: 
-  LinkedRecorder: {fileID: 1807794208}
 --- !u!212 &1807794206
 SpriteRenderer:
   serializedVersion: 3
@@ -525,24 +519,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1807794204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c813d829be7a6e49ab4a39f642aa4f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 871306e31ae8bd943939624f020dc4f9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioRecorder
-  onRecordingReady:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 3c10d9bf8734d8548baeea5889a4b290, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_EditorClassIdentifier: Assembly-CSharp::MoveWithMicLoudness
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

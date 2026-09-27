@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 97860206a1d37f44cb06a195388ae587
+guid: f3b972749e8e71b4c98c4e694985cb4b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4656658513182322354
-    second: bee_0
-  - first:
-      213: 8806478641461110654
-    second: bee_1
-  - first:
-      213: 2575153785110993952
-    second: bee_2
-  - first:
-      213: 7329798439485887900
-    second: bee_3
-  - first:
-      213: -996179858421597942
-    second: bee_4
+      213: 4471526606976118897
+    second: FarBack_0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -114,45 +102,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bee_0
+      name: FarBack_0_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 2048
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e41187911c9306fb0800000000000000
-      internalID: -4656658513182322354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bee_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e77aa5a6aa5e63a70800000000000000
-      internalID: 8806478641461110654
+      spriteID: 170f48402cd0e0e30800000000000000
+      internalID: 4471526606976118897
       vertices: []
       indices: 
       edges: []
@@ -161,7 +127,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9281bf346d56eca48834c56260adeb9a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -169,12 +135,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      bee_0: -4656658513182322354
-      bee_1: 8806478641461110654
+      FarBack_0_0: 4471526606976118897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

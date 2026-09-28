@@ -32,5 +32,14 @@ public class GameInput : MonoBehaviour
 		return inputActions.Player.Jump.ReadValue<float>();
 	}
 
+    public void EnablePlayerActions()
+    {
+        inputActions.Player.Enable();        
+    }
+
+    public void DisablePlayerActions()
+    {
+        inputActions.Player.Disable();        
+    }
 
 }

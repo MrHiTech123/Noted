@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float vertFollowSpeed = 3f;
     
     float scrollTimer = 1.5f;
-
     Bezier bezier;
+    bool isResting = false;
 
     void Awake()
     {
@@ -40,21 +40,23 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         HandleMovment();
     }
 
     private void HandleMovment()
     {
-        if(playerFollowPointRB.linearVelocityX != playerVelocity)
-        {
-            playerFollowPointRB.linearVelocityX = playerVelocity;
-        }
+    
+        
+        
+        playerFollowPointRB.linearVelocityX = isResting ? 10f : playerVelocity;
+        
         Vector2 direction = playerFollowPoint.position - (Vector3)playerRB.position;
         float verticalVelocity = direction.y * vertFollowSpeed;
-        playerRB.linearVelocity = new Vector2(playerVelocity,verticalVelocity);
+        playerRB.linearVelocity = new Vector2(playerFollowPointRB.linearVelocityX,verticalVelocity);
         planeTransform.rotation = bezier.Rotate(-direction, planeTransform);
+        
         scrollTimer += Time.deltaTime;
         if(scrollTimer >= scrollTimerMax){
             if(GameInput.Instance.GetScrollDir() > 0)
@@ -76,4 +78,16 @@ public class PlayerMovement : MonoBehaviour
     {
         return playerRB.linearVelocity;
     }
+
+    public Transform GetFollowPoint()
+    {
+        return playerFollowPoint;
+    }
+
+    public void ChangeResting()
+    {
+        isResting = !isResting;
+    }
+
+   
 }

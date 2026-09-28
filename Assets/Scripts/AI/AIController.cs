@@ -16,7 +16,7 @@ public class AIController : MonoBehaviour
         agent = GetComponent<IAI>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         switch (state)
         {

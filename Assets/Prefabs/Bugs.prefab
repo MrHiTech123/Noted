@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5367516729661065298}
   - component: {fileID: 1554452891379492118}
   - component: {fileID: 1881923244040670385}
+  - component: {fileID: 7765511858719902172}
+  - component: {fileID: 6344435008262738270}
   m_Layer: 0
   m_Name: Bug (2)
   m_TagString: Untagged
@@ -129,6 +131,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BugMovement
   beeRange: 0.7
+  flyOff: 0
+--- !u!50 &7765511858719902172
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676680394525848058}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &6344435008262738270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676680394525848058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0a4a571ed1a8b4a8e0691a4580940a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DespawnDistance
+  despawnDistance: 30
 --- !u!1 &1505350855200290225
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +184,8 @@ GameObject:
   - component: {fileID: 4388241265839548094}
   - component: {fileID: 8288916242253509152}
   - component: {fileID: 7874125428046364187}
-  m_Layer: 0
+  - component: {fileID: 7662036880878485150}
+  m_Layer: 9
   m_Name: Bugs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,11 +222,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaecbb2bd0b9cc744947b0841ecbe3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BugAI
-  chaseSpeed: 7
+  chaseSpeed: 7.1
   shpereSight: 8.58
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  bugs:
+  - {fileID: 8604210363195593068}
+  - {fileID: 8624010445948379740}
+  - {fileID: 4457060965440656515}
 --- !u!114 &8288916242253509152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,12 +273,25 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1
+--- !u!114 &7662036880878485150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505350855200290225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0a4a571ed1a8b4a8e0691a4580940a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DespawnDistance
+  despawnDistance: 30
 --- !u!1 &3279697584895908209
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +304,8 @@ GameObject:
   - component: {fileID: 5525453111949010017}
   - component: {fileID: 4417093831299323099}
   - component: {fileID: 7811713662249211632}
+  - component: {fileID: 4372640773693259306}
+  - component: {fileID: 2426384721902317830}
   m_Layer: 0
   m_Name: Bug
   m_TagString: Untagged
@@ -360,6 +423,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BugMovement
   beeRange: 0.7
+  flyOff: 0
+--- !u!50 &4372640773693259306
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279697584895908209}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2426384721902317830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279697584895908209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0a4a571ed1a8b4a8e0691a4580940a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DespawnDistance
+  despawnDistance: 30
 --- !u!1 &6710876787278993682
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +476,8 @@ GameObject:
   - component: {fileID: 5901842138650454080}
   - component: {fileID: 6918477918876619100}
   - component: {fileID: 1800717944043710234}
+  - component: {fileID: 5721647209889120248}
+  - component: {fileID: 1412820111960037628}
   m_Layer: 0
   m_Name: Bug (1)
   m_TagString: Untagged
@@ -489,3 +595,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BugMovement
   beeRange: 0.7
+  flyOff: 0
+--- !u!50 &5721647209889120248
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710876787278993682}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1412820111960037628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710876787278993682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0a4a571ed1a8b4a8e0691a4580940a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DespawnDistance
+  despawnDistance: 30

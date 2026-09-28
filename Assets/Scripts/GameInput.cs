@@ -14,11 +14,13 @@ public class GameInput : MonoBehaviour
         else {
             Destroy(this);
         }
+        inputActions = new InputSystem_Actions();
     }
 
     void Start()
     {
-        inputActions = new InputSystem_Actions();
+        DontDestroyOnLoad(gameObject);
+        
         inputActions.Player.Enable();
     }
 

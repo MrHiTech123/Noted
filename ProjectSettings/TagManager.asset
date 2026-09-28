@@ -13,9 +13,9 @@ TagManager:
   - UI
   - PlayerLayer
   - FloorLayer
-  - 
-  - 
-  - 
+  - RestLayer
+  - EnemyLayer
+  - EditerLayer
   - 
   - 
   - 

@@ -5,16 +5,43 @@ public class BugAI : MonoBehaviour, IAI
     [SerializeField] float chaseSpeed = 8f;
     [SerializeField] float shpereSight = 10f;
     [SerializeField] LayerMask playerLayer;
+    [SerializeField] Transform[] bugs;
     bool locked = false;
     float returnTimer = 0f;
     Vector2 startPos;
     Vector2 currPos;
     float distanceFromStart = 0;
+    bool destroy = false;
     Bezier bezier = new Bezier();
     void Start()
     {
         startPos = transform.position;
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            foreach (Transform bug in bugs)
+            {
+                bug.SetParent(null,true);
+                
+                Rigidbody2D bugRB = bug.GetComponent<Rigidbody2D>();
+                bug.GetComponent<BugMovement>().flyOff = true;
+                Vector2 direction = Random.insideUnitCircle.normalized;
+                bugRB.linearVelocity = direction * 10f;
+
+            }
+            destroy = true;
+        }
+    }
+
+    void Update()
+    {
+        if (destroy) Destroy(gameObject);
+        
+    }
+
     public void Patrol()
     {
         if(!locked){

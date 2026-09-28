@@ -33,15 +33,22 @@ public class BirdAI : MonoBehaviour, IAI
         birdRB = GetComponent<Rigidbody2D>();
         bezier.GenerateBezierLoop(control, bezPoints);
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.layer == playerLayer)
         {
             attackOver = true;
             hitPlayer = true;
-            contactNormal = collision.contacts[0].normal;
-            birdRB.AddForce(contactNormal*bouceForce);
+            Vector2 contactPoint = collision.ClosestPoint(transform.position);
 
+            Vector2 normal = ((Vector2)transform.position - contactPoint).normalized;
+
+            direction = Vector2.Reflect(direction, normal);
+            birdRB.AddForce(direction*bouceForce);
+        }
+        if(collision.gameObject.layer == 7)
+        {
+            Destroy(gameObject);
         }
     }
     public void Patrol()

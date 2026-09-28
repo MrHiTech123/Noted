@@ -26,6 +26,17 @@ public class HealthPlayer : MonoBehaviour
             iFrameTimer = 0;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 9){
+            if(health > 0 && iFrameTimer > iFrameMax){
+                health--;
+                spriteRenderer.sprite = sprites[health];
+                iFrameTimer = 0;
+            }
+        }
+    }
     void Update()
     {
         if (iFrameTimer <= iFrameMax)

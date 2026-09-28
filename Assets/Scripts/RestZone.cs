@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class RestZone : MonoBehaviour
 {
     [SerializeField] float restTime = 5f;
+    public EventHandler OnTrigger;
     Vector2 targetPos;
     bool didTrigger = false;
     float timer = 0;
@@ -11,6 +13,12 @@ public class RestZone : MonoBehaviour
     void Start()
     {
         targetPos = new Vector2(transform.position.x + 100f, transform.position.y - 10f);
+        HealthPlayer.Instance.OnDie += HealthPlayer_OnDie;
+    }
+
+    private void HealthPlayer_OnDie(object sender, System.EventArgs e)
+    {
+        StopResting();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,7 +32,7 @@ public class RestZone : MonoBehaviour
                 GameInput.Instance.DisablePlayerActions();
                 followPoint.gravityScale = 0;
                 followPoint.linearVelocityY = 0;
-
+                OnTrigger?.Invoke(this, EventArgs.Empty);
             }
         }
     }
@@ -37,12 +45,18 @@ public class RestZone : MonoBehaviour
             followPoint.position = new Vector2(followPoint.position.x, newY);
             if(timer >= restTime)
             {
-                player.ChangeResting();
-                didTrigger = false;
-                followPoint.gravityScale = 1;
-                GameInput.Instance.EnablePlayerActions();
-                
+                StopResting();
             }
         }
     }
+
+    public void StopResting()
+    {
+        player.ChangeResting();
+        didTrigger = false;
+        followPoint.gravityScale = 1;
+        GameInput.Instance.EnablePlayerActions();
+    }
+
+
 }

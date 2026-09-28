@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     float scrollTimer = 1.5f;
     Bezier bezier;
     bool isResting = false;
+    bool isFirstUpdate = true;
 
     void Awake()
     {
@@ -36,20 +37,25 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         bezier = new Bezier();
+        GameInput.Instance.EnablePlayerActions();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (isFirstUpdate)
+        {
+            isFirstUpdate = false;
+            playerFollowPointRB.gravityScale = 1;
+            GameInput.Instance.EnablePlayerActions();
+        }
         HandleMovment();
     }
 
     private void HandleMovment()
     {
-    
-        
-        
         playerFollowPointRB.linearVelocityX = isResting ? 10f : playerVelocity;
         
         Vector2 direction = playerFollowPoint.position - (Vector3)playerRB.position;

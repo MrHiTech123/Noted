@@ -14,4 +14,8 @@ public class FollowCollisionScript : MonoBehaviour
        
         
     }
+    void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 }

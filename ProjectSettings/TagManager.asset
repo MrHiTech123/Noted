@@ -41,6 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 1Sky
+    uniqueID: 1383416425
+    locked: 0
+  - name: 2Cloud
+    uniqueID: 240269641
+    locked: 0
+  - name: 3Background
+    uniqueID: 2050471769
+    locked: 0
+  - name: 3.5Clouds
+    uniqueID: 1879401109
+    locked: 0
+  - name: 4foureground
+    uniqueID: 2304571385
+    locked: 0
+  - name: Game
+    uniqueID: 1489446091
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []

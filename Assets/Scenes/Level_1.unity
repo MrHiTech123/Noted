@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 1413208380}
   - component: {fileID: 1413208382}
   - component: {fileID: 1413208381}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fix Layer Combo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4349,7 +4349,7 @@ GameObject:
   - component: {fileID: 1797626370}
   - component: {fileID: 1797626369}
   - component: {fileID: 1797626368}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85336,7 +85336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1945658281}
   - component: {fileID: 1945658280}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

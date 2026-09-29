@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 class MoveWithMicLoudness : MonoBehaviour
 {
+	
+	public static readonly float POSITION_OFFSET = -15;
 	void Start()
 	{
 		
@@ -9,7 +12,20 @@ class MoveWithMicLoudness : MonoBehaviour
 
 	void Update()
 	{
-		float frequencyYCoordinate = MicInput.MicFrequency * 0.01f / MicInput.RECORDING_LENGTH;
+		float scaledFrequency = MicInput.MicFrequency;
+		
+		float frequencyYCoordinate;
+		
+		
+		if (scaledFrequency < 1)
+		{
+			frequencyYCoordinate = 0;
+		}
+		else {
+			frequencyYCoordinate = 2 * (float)(Math.Log(scaledFrequency) / Math.Log(2)) + POSITION_OFFSET;
+		}
+		
+		// frequencyYCoordinate += POSITION_OFFSET;
 		
 		Debug.Log(MicInput.MicLoudness + " -> ");
 		Debug.Log(MicInput.MicFrequency + " -> " + frequencyYCoordinate);

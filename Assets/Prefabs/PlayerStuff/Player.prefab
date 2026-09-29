@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6104158691131466933}
   - component: {fileID: 3638672100637292156}
   - component: {fileID: 2311108288138516088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.51, y: 0.51, z: 0.51}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7485885933095105936}
   m_Father: {fileID: 0}
@@ -80,9 +80,9 @@ MonoBehaviour:
   playerFollowPointRB: {fileID: 0}
   planeTransform: {fileID: 7485885933095105936}
   playerVelocity: 7
-  scrollTimerMax: 0.75
-  playerForce: 600
-  vertFollowSpeed: 3
+  scrollTimerMax: 0.74
+  playerForce: 550.3
+  vertFollowSpeed: 3.5
 --- !u!114 &3638672100637292156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +105,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   playerRB: {fileID: 1677113799820387954}
-  iFrameMax: 0.5
+  iFrameMax: 0.1
+  respawnTimeMax: 0.75
 --- !u!61 &2311108288138516088
 BoxCollider2D:
   m_ObjectHideFlags: 0

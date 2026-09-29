@@ -58,10 +58,12 @@ public class PlayerMovement : MonoBehaviour
 	private void HandleMovement()
 	{
 		HandleHorizontalMovement();
+		Follow(playerRB, playerFollowPoint);
 		switch (CurrentInputMode.value)
 		{
 			case InputMode.SCROLL_WHEEL:
 				HandleMovementScrollWheel();
+				HandleMovementWhistling();
 				break;
 			case InputMode.AUDIO:
 				HandleMovementWhistling();
@@ -76,11 +78,11 @@ public class PlayerMovement : MonoBehaviour
 		
 	}
 	
-	private void Follow(Transform toFollow)
+	private void Follow(Rigidbody2D follower, Transform toFollow)
 	{
-		Vector2 direction = toFollow.position - (Vector3)playerRB.position;
+		Vector2 direction = toFollow.position - (Vector3)follower.position;
         float verticalVelocity = direction.y * vertFollowSpeed;
-        playerRB.linearVelocity = new Vector2(playerFollowPointRB.linearVelocityX,verticalVelocity);
+        follower.linearVelocity = new Vector2(playerFollowPointRB.linearVelocityX,verticalVelocity);
 		planeTransform.rotation = bezier.Rotate(-direction, planeTransform);
 	}
 	private void HandleMovementWhistling()
@@ -94,14 +96,11 @@ public class PlayerMovement : MonoBehaviour
 		// float verticalVelocity = direction.y * vertFollowSpeed;
 		// playerRB.linearVelocity = new Vector2(playerFollowPointRB.linearVelocityX, verticalVelocity);
 		
-		Follow(playerFollowPointAudio.transform);
+		Follow(playerFollowPointRB, playerFollowPointAudio.transform);
 	}
 	
     private void HandleMovementScrollWheel()
     {
-        Follow(playerFollowPoint);
-		
-		
         scrollTimer += Time.deltaTime;
         if(scrollTimer >= scrollTimerMax){
             if(GameInput.Instance.GetScrollDir() > 0)

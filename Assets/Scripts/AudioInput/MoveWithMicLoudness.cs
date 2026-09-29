@@ -33,11 +33,11 @@ class MoveWithMicLoudness : MonoBehaviour
 		float frequencyYCoordinate = DesiredYCoordinate();
 		
 		// frequencyYCoordinate += POSITION_OFFSET;
-		
+		Debug.Log("Printing mic freq?");
 		Debug.Log(MicInput.MicLoudness + " -> ");
 		Debug.Log(MicInput.MicFrequency + " -> " + frequencyYCoordinate);
-		
-		transform.SetPositionAndRotation(new Vector3(transform.position.x, frequencyYCoordinate, transform.position.z), transform.rotation);
+				
+		transform.SetLocalPositionAndRotation(new Vector3(0, frequencyYCoordinate, 0), transform.rotation);
 		
 	}
 }

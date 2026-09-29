@@ -6,7 +6,7 @@ public enum InputMode
 
 public class CurrentInputMode
 {
-	public static InputMode value = InputMode.AUDIO;
+	public static InputMode value = InputMode.SCROLL_WHEEL;
 }
 
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5653269612695451957}
   - component: {fileID: 951019937390020756}
+  - component: {fileID: 808337540901461104}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -44,3 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f9845bbacb6a84e80cad1f1c5d2bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameInput
+--- !u!114 &808337540901461104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5299897688972740923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb224be22fa640942982efb42eb4c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MicInput

@@ -29,7 +29,11 @@ public class MicInput : MonoBehaviour {
 				return -1;
 			}
 			
-			return peaks.Count() / (float)timeOfMeasurement.TotalSeconds;
+			float toReturn = peaks.Count() / (float)timeOfMeasurement.TotalSeconds;
+			
+			Debug.Log("Loudness: " + MicLoudness + "Frequency: " + toReturn);
+			
+			return toReturn;
 			
 			// return peaks.Count();
 		}

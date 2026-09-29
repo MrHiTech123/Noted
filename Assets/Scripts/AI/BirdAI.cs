@@ -27,8 +27,12 @@ public class BirdAI : MonoBehaviour, IAI
     bool hitPlayer = false;
     Vector2 contactNormal;
     private Bezier bezier = new Bezier();
+    float randomStartTime;
+    float randomStartTimer = 0;
+
     void Start()
     {
+        randomStartTime  = Random.Range(0f,2f);
         control = transform.position;
         birdRB = GetComponent<Rigidbody2D>();
         bezier.GenerateBezierLoop(control, bezPoints);
@@ -53,6 +57,8 @@ public class BirdAI : MonoBehaviour, IAI
     }
     public void Patrol()
     {
+        randomStartTimer += Time.deltaTime;
+        if(randomStartTimer <= randomStartTime) return;
         if(attackOver && hitPlayer)
         {
             birdRB.gravityScale = 1;

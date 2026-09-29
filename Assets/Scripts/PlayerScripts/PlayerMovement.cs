@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			case InputMode.SCROLL_WHEEL:
 				HandleMovementScrollWheel();
-				HandleMovementWhistling();
+				// HandleMovementWhistling();
 				break;
 			case InputMode.AUDIO:
 				HandleMovementWhistling();

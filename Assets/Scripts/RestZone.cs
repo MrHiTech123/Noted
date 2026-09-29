@@ -12,7 +12,7 @@ public class RestZone : MonoBehaviour
     PlayerMovement player;
     void Start()
     {
-        targetPos = new Vector2(transform.position.x + 100f, transform.position.y - 10f);
+        targetPos = new Vector2(transform.position.x + 100f, transform.position.y - 13f);
         HealthPlayer.Instance.OnDie += HealthPlayer_OnDie;
     }
 

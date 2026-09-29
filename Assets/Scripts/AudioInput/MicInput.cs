@@ -45,10 +45,20 @@ public class MicInput : MonoBehaviour {
 	
     private string _device;
   
+	private static readonly string PRIORITY_HEADSET = "Headset (GROOVZ)";
+  
+	private static string GetHeadset()
+	{
+		if (Microphone.devices.Contains(PRIORITY_HEADSET))
+		{
+			return PRIORITY_HEADSET;
+		}
+		return Microphone.devices[0];
+	}
     //mic initialization
     void InitMic(){
         // if(_device == null) _device = Microphone.devices[0];
-		_device = "Headset (GROOVZ)";
+		_device = GetHeadset();
 		Debug.Log("Hi " + Microphone.devices[0]);
 		Debug.Log("Hi " + _device);
         _clipRecord = Microphone.Start(_device, true, 999, 44100);

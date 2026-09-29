@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Vars")]
     [SerializeField] float playerVelocity = 7;
-
     [SerializeField] float scrollTimerMax = 1.5f;
     [SerializeField] float playerForce = 750;
     [SerializeField] float vertFollowSpeed = 3f;
@@ -71,10 +70,10 @@ public class PlayerMovement : MonoBehaviour
 	private void HandleMovementWhistling()
 	{
 		float yOffset = MoveWithMicLoudness.DesiredYCoordinate();
-		
+		Debug.Log(yOffset);
 		playerFollowPointAudio.transform.localPosition = new Vector2(10, yOffset);
 		
-		
+		playerFollowPoint.position = new Vector2(transform.position.x + 8f, yOffset);
 		Vector2 direction = playerFollowPointAudio.transform.position - (Vector3)playerRB.position;
 		float verticalVelocity = direction.y * vertFollowSpeed;
 		playerRB.linearVelocity = new Vector2(playerFollowPointRB.linearVelocityX, verticalVelocity);

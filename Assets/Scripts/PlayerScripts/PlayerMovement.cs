@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	private void HandleMovement()
 	{
+		HandleHorizontalMovement();
 		switch (CurrentInputMode.value)
 		{
 			case InputMode.SCROLL_WHEEL:
@@ -68,27 +69,39 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 	
+	private void HandleHorizontalMovement()
+	{
+		playerFollowPointRB.linearVelocityX = isResting ? 10f : playerVelocity;
+		
+		
+	}
+	
+	private void Follow(Transform toFollow)
+	{
+		Vector2 direction = toFollow.position - (Vector3)playerRB.position;
+        float verticalVelocity = direction.y * vertFollowSpeed;
+        playerRB.linearVelocity = new Vector2(playerFollowPointRB.linearVelocityX,verticalVelocity);
+		planeTransform.rotation = bezier.Rotate(-direction, planeTransform);
+	}
 	private void HandleMovementWhistling()
 	{
-		float yOffset = MoveWithMicLoudness.DesiredYCoordinate();
+		// float yOffset = MoveWithMicLoudness.DesiredYCoordinate();
 		
-		playerFollowPointAudio.transform.localPosition = new Vector2(10, yOffset);
+		// playerFollowPointAudio.transform.localPosition = new Vector2(10, yOffset);
 		
 		
-		Vector2 direction = playerFollowPointAudio.transform.position - (Vector3)playerRB.position;
-		float verticalVelocity = direction.y * vertFollowSpeed;
-		playerRB.linearVelocity = new Vector2(playerFollowPointRB.linearVelocityX, verticalVelocity);
+		// Vector2 direction = playerFollowPointAudio.transform.position - (Vector3)playerRB.position;
+		// float verticalVelocity = direction.y * vertFollowSpeed;
+		// playerRB.linearVelocity = new Vector2(playerFollowPointRB.linearVelocityX, verticalVelocity);
+		
+		Follow(playerFollowPointAudio.transform);
 	}
 	
     private void HandleMovementScrollWheel()
     {
-        playerFollowPointRB.linearVelocityX = isResting ? 10f : playerVelocity;
-        
-        Vector2 direction = playerFollowPoint.position - (Vector3)playerRB.position;
-        float verticalVelocity = direction.y * vertFollowSpeed;
-        playerRB.linearVelocity = new Vector2(playerFollowPointRB.linearVelocityX,verticalVelocity);
-        planeTransform.rotation = bezier.Rotate(-direction, planeTransform);
-        
+        Follow(playerFollowPoint);
+		
+		
         scrollTimer += Time.deltaTime;
         if(scrollTimer >= scrollTimerMax){
             if(GameInput.Instance.GetScrollDir() > 0)

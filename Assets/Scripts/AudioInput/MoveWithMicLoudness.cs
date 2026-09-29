@@ -9,21 +9,28 @@ class MoveWithMicLoudness : MonoBehaviour
 	{
 		
 	}
-
-	void Update()
+	
+	public static float DesiredYCoordinate()
 	{
 		float scaledFrequency = MicInput.MicFrequency;
 		
-		float frequencyYCoordinate;
+		
 		
 		
 		if (scaledFrequency < 1)
 		{
-			frequencyYCoordinate = 0;
+			return 0;
 		}
 		else {
-			frequencyYCoordinate = 4 * (float)(Math.Log(scaledFrequency) / Math.Log(2)) + POSITION_OFFSET;
+			return 4 * (float)(Math.Log(scaledFrequency) / Math.Log(2)) + POSITION_OFFSET;
 		}
+		
+	}
+
+	void Update()
+	{
+		
+		float frequencyYCoordinate = DesiredYCoordinate();
 		
 		// frequencyYCoordinate += POSITION_OFFSET;
 		

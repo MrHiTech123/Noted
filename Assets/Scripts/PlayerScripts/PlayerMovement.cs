@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Rigidbody2D playerRB;
     [SerializeField] Transform playerFollowPoint;
     [SerializeField] Rigidbody2D playerFollowPointRB;
+	[SerializeField] MoveWithMicLoudness playerFollowPointAudio;
     [SerializeField] Transform planeTransform;
 
 
@@ -51,10 +52,35 @@ public class PlayerMovement : MonoBehaviour
             playerFollowPointRB.gravityScale = 1;
             GameInput.Instance.EnablePlayerActions();
         }
-        HandleMovment();
+        HandleMovement();
     }
-
-    private void HandleMovment()
+	
+	private void HandleMovement()
+	{
+		switch (CurrentInputMode.value)
+		{
+			case InputMode.SCROLL_WHEEL:
+				HandleMovementScrollWheel();
+				break;
+			case InputMode.AUDIO:
+				HandleMovementWhistling();
+				break;
+		}
+	}
+	
+	private void HandleMovementWhistling()
+	{
+		float yOffset = MoveWithMicLoudness.DesiredYCoordinate();
+		
+		playerFollowPointAudio.transform.localPosition = new Vector2(10, yOffset);
+		
+		
+		Vector2 direction = playerFollowPointAudio.transform.position - (Vector3)playerRB.position;
+		float verticalVelocity = direction.y * vertFollowSpeed;
+		playerRB.linearVelocity = new Vector2(playerFollowPointRB.linearVelocityX, verticalVelocity);
+	}
+	
+    private void HandleMovementScrollWheel()
     {
         playerFollowPointRB.linearVelocityX = isResting ? 10f : playerVelocity;
         

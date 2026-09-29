@@ -13,25 +13,25 @@ public class MicInput : MonoBehaviour {
 	{
 		get
 		{
-			// if (peaks.Count() <= 1)
-			// {
-			// 	return -1;
-			// }
+			if (peaks.Count() <= 1)
+			{
+				return -1;
+			}
 			
-			// TimeSpan timeOfMeasurement = peaks.Last().Subtract(peaks.First());
+			TimeSpan timeOfMeasurement = peaks.Last().Subtract(peaks.First());
 			
 			
 			
-			// Debug.Log(peaks.Count() + " / " + timeOfMeasurement.TotalSeconds);
+			Debug.Log(peaks.Count() + " / " + timeOfMeasurement.TotalSeconds);
 			
-			// if (timeOfMeasurement.TotalSeconds == 0)
-			// {
-			// 	return -1;
-			// }
+			if (timeOfMeasurement.TotalSeconds == 0)
+			{
+				return -1;
+			}
 			
-			// return peaks.Count() / (float)timeOfMeasurement.TotalSeconds;
+			return peaks.Count() / (float)timeOfMeasurement.TotalSeconds;
 			
-			return peaks.Count();
+			// return peaks.Count();
 		}
 	}
 	private WaveState currentWaveState;

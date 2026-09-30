@@ -106,6 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b436f5f6bcdf5e439f7af6ff8f97c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
+  renderer: {fileID: 1501010320648052728}
+  STICKY_NOTE_SPRITE: {fileID: 2382542705151310463, guid: d3edac6b6b6f21948aadd819afe1ef20, type: 3}
+  PAPER_CLIP_SPRITE: {fileID: 1566221552143934060, guid: 15e85e030c1d32042882d9ca548f6590, type: 3}
 --- !u!58 &2017800536068518998
 CircleCollider2D:
   m_ObjectHideFlags: 0

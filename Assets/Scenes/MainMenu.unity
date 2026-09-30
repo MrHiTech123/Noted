@@ -1436,6 +1436,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5075089461270645495, guid: dd787942729203e4da81f86e07aa2db7, type: 3}
+      propertyPath: m_SortingOrder
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 5268695016870714296, guid: dd787942729203e4da81f86e07aa2db7, type: 3}
       propertyPath: m_Name
       value: ScreenFade

@@ -12,7 +12,7 @@ public class ScoreBoard : MonoBehaviour
 	{
 		if (INSTANCE == null) INSTANCE = this;
 		
-		DontDestroyOnLoad(this.gameObject);
+		// DontDestroyOnLoad(this.gameObject);
 		
 		textField = GetComponent<TMP_Text>();
 	}

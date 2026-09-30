@@ -6,9 +6,9 @@ public static class Loader
     private static Scene targetScene;
     public enum Scene
     {
-        GameScene1,
-        GameScene2,
-        GameScene3,
+        Level_1,
+        Level_2,
+        Level_3,
         LoadingScene,
     }
     public static void Load(Scene targetScene)

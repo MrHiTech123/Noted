@@ -233,6 +233,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02b5627230976534e9391764e03da85d, type: 3}
+--- !u!20 &571576720 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6362722119571847302, guid: 02b5627230976534e9391764e03da85d, type: 3}
+  m_PrefabInstance: {fileID: 571576719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &873822553
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6104158691131466933, guid: 6c8307abf7869f04ebdd861d0a4c89f4, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 571576720}
     - target: {fileID: 6104158691131466933, guid: 6c8307abf7869f04ebdd861d0a4c89f4, type: 3}
       propertyPath: playerFollowPoint
       value: 

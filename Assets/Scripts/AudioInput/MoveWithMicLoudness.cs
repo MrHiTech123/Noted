@@ -4,7 +4,7 @@ using UnityEngine;
 class MoveWithMicLoudness : MonoBehaviour
 {
 	
-	public static readonly float POSITION_OFFSET = -30;
+	public static readonly float POSITION_OFFSET = -32;
 	void Start()
 	{
 		

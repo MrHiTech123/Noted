@@ -6,6 +6,7 @@ public static class Loader
     private static Scene targetScene;
     public enum Scene
     {
+        StartScene,
         Level_1,
         Level_2,
         Level_3,

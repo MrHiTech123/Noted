@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6104158691131466933}
   - component: {fileID: 3638672100637292156}
   - component: {fileID: 2311108288138516088}
-  - component: {fileID: 1884058669704543949}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -81,6 +80,7 @@ MonoBehaviour:
   playerFollowPointRB: {fileID: 0}
   playerFollowPointAudio: {fileID: 0}
   planeTransform: {fileID: 7485885933095105936}
+  cam: {fileID: 0}
   playerVelocity: 7
   scrollTimerMax: 0.5
   playerForce: 550
@@ -155,14 +155,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.41, y: 1.34}
   m_EdgeRadius: 0
---- !u!81 &1884058669704543949
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5569085843860090465}
-  m_Enabled: 1
 --- !u!1 &6912348855080668893
 GameObject:
   m_ObjectHideFlags: 0

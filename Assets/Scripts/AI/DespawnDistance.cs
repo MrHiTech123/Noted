@@ -13,7 +13,7 @@ public class DespawnDistance : MonoBehaviour
     {
         if (transform.position.x < PlayerMovement.Instance.transform.position.x - despawnDistance)
         {
-            audioSource.Play();
+            if(audioSource != null) audioSource.Play();
             Destroy(gameObject);
         }
     }

@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Rigidbody2D playerFollowPointRB;
 	[SerializeField] MoveWithMicLoudness playerFollowPointAudio;
     [SerializeField] Transform planeTransform;
+    public Camera cam;
 
 
     [Header("Vars")]

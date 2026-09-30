@@ -265,6 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 105462597}
   - component: {fileID: 105462596}
+  - component: {fileID: 105462598}
   m_Layer: 0
   m_Name: FarBack_0_0
   m_TagString: Untagged
@@ -353,6 +354,18 @@ Transform:
   - {fileID: 1587881418}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &105462598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105462595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b627c395a4acace4db4603334633fe6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepBackground
 --- !u!1 &296295013
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +842,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 124.03591, y: 0, z: 130.9281, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2050,7 +2063,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 121.739044, y: 0, z: 130.92664, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -13003,6 +13016,6 @@ SceneRoots:
   - {fileID: 966569370}
   - {fileID: 105462597}
   - {fileID: 326573713}
+  - {fileID: 1087923240}
   - {fileID: 1469192126}
   - {fileID: 1530971228}
-  - {fileID: 1087923240}

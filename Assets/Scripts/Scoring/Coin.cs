@@ -36,6 +36,7 @@ public class Coin : MonoBehaviour
 	{
 		++TotalCollected;
 		Debug.Log("Coins collected: " + TotalCollected);
+		ScoreBoard.Update(TotalCollected);
 		Destroy(gameObject);
 	}
 	

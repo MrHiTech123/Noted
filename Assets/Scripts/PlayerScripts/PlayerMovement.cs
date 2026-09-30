@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Vars")]
     [SerializeField] float playerVelocity = 7;
-
     [SerializeField] float scrollTimerMax = 1.5f;
     [SerializeField] float playerForce = 750;
     [SerializeField] float vertFollowSpeed = 3f;
@@ -63,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			case InputMode.SCROLL_WHEEL:
 				HandleMovementScrollWheel();
-				HandleMovementWhistling();
+				// HandleMovementWhistling();
 				break;
 			case InputMode.AUDIO:
 				HandleMovementWhistling();

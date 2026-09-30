@@ -31,7 +31,7 @@ public class HealthPlayer : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collider)
     {
         if(health > 0 && iFrameTimer > iFrameMax){
-            health--;
+            health = 0;
             spriteRenderer.sprite = sprites[health];
             if(collider.gameObject.layer == 7)
             {

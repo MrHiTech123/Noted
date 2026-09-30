@@ -26,6 +26,7 @@ public class Coin : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D collision)
 	{
+		Debug.Log("Coin hit by " + collision.gameObject.name);
 		bool collidedWithPlayer = collision.gameObject.GetComponent<PlayerMovement>() != null;
 		
 		if (collidedWithPlayer)
